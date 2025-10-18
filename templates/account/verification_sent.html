@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+{% load static tailwind_tags %}
+{% load static %}
+{% include 'main/includes/messages.html' %}
+
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberlearnlimited - Verify Email</title>
+</head>
+<body>
+    <div class="flex h-screen items-center justify-center w-full px-3">
+        <div class="flex flex-col gap-6 px-6 py-12 lg:px-8 w-full border border-slate-200 bg-orange-50 max-w-xl rounded-md shadow-lg">
+            <div class="max-w-xl px-5 text-center">
+                <h2 class="mb-2 text-xl font-bold text-slate-700 font-barlow">Verify Your E-mail Address</h2>
+                <p class="mb-2 text-sm font-barlow text-slate-600 leading-7">Welcome on Board, check your email address inbox or spam folder for a verification link. If you haven't received one yet, we shall resend it over your first login attempt.</p>
+                <a href="{% url 'account_login' %}" class="font-barlow mt-3 w-96 rounded-md bg-orange-600 px-5 py-3 text-white font-semibold">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

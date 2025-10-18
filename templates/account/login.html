@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+{% load static tailwind_tags %}
+{% load static %}
+{% include 'main/includes/messages.html' %}
+
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberlearnlimited - Login</title>
+</head>
+<body>
+    <div class="flex h-screen items-center justify-center w-full px-3">
+        <div class="flex flex-col px-6 py-12 lg:px-8 w-full border border-slate-200  max-w-md rounded-2xl">
+            <div class="mx-auto w-full max-w-sm text-center items-center justify-center">
+                <a href="{% url 'home' %}" class="inline-flex gap-2 items-center">
+                    <div class="w-8 h-8 bg-gradient-to-br from-orange-600 to-orange-900 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold text-orange-900">Cyberlearnlimited</span>
+                </a>
+                <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-slate-700">Sign in to your account</h2>
+            </div>
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form class="space-y-6" action="{% url 'account_login' %}" method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <label for="id_login" class="block text-sm/6 font-medium text-gray-900">Email address*</label>
+                        <div class="mt-2">
+                            <input type="email" maxlength="320" required id="id_login" name="login" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="id_password" class="block text-sm/6 font-medium text-gray-900">Password*</label>
+                            <div class="text-sm">
+                                <a class="helptext" id="id_password_helptext" href="{% url 'account_reset_password' %}" class="font-semibold text-orange-600 hover:text-orange-500">Forgot password?</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <input type="password" name="password" autocomplete="current-password" required aria-describedby="id_password_helptext" id="id_password" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6">
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label for="id_remember" class="block text-sm/6 font-medium text-gray-900">Remember Me</label>
+                        <input type="checkbox" name="remember" id="id_remember" class="h-4 w-4 cursor-pointer rounded border-gray-300 text-orange-600 focus:ring-orange-500">
+                    </div>
+                    <div>
+                        <button type="submit" class="bg-gradient-to-r hover:cursor-pointer w-full from-orange-600 to-orange-950 hover:bg-gradient-to-r hover:from-orange-950 hover:to-orange-600 text-white px-8 py-3 rounded-md transition-all duration-300 ease-in">Sign in</button>
+                    </div>
+                </form>
+                <p class="mt-10 text-center text-sm/6 text-gray-500">
+                    <a href="{% url 'account_type_choice' %}" class="text-orange-600 hover:text-orange-500">Create free account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

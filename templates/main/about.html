@@ -1,0 +1,128 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="py-14 lg:py-24 relative z-0 bg-slate-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center">
+            <h1
+                class="max-w-2xl mx-auto text-center font-manrope font-bold text-4xl  text-gray-900 mb-5 md:text-5xl md:leading-normal">
+                Our Mission is to Transform  <span class="text-orange-600">Businesses </span>Through Technology
+            </h1>
+            <p class="mx-auto max-w-7xl text-center text-base leading-7 text-gray-500 mb-9">
+                At Cyberlearnlimited, we believe that technology should empower, not complicate. Our mission is to help businesses thrive by building custom software solutions that streamline operations, enhance user experiences, and drive sustainable growth in the digital age.</p>
+        </div>
+    </section>
+
+    <section class="py-14 lg:py-24 relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative ">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-9">
+                <div class="bg-orange-50 rounded-2xl p-6 lg:p-12 flex items-center justify-center">
+                    <img src="{% static 'images/interpretation-team.png' %}" alt="Cyberlearnlimited Development Team" class="max-lg:mx-auto object-cover rounded-2xl">
+                </div>
+                <div class="lg:pl-[100px] flex items-center">
+                    <div class="data w-full">
+                        <h2
+                            class="font-manrope font-bold text-4xl lg:text-5xl text-slate-700 mb-9 max-lg:text-center relative">
+                            About
+                            Us </h2>
+                        <p class="text-lg leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                            Founded in 2022, Cyberlearnlimited emerged from a passion for solving complex business challenges through elegant software solutions. What began as a small team of dedicated developers has grown into a full-service development agency serving startups, SMEs, and enterprises across multiple industries.
+                            Our journey has been marked by continuous learning and adaptation to emerging technologies, while maintaining our core values of quality, transparency, and client success. We've built everything from simple MVPs to complex enterprise systems, always focusing on delivering solutions that create real business value.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-14 lg:py-24 relative bg-slate-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative ">
+            <h2
+                class="font-manrope font-bold text-4xl lg:text-5xl text-slate-700 mb-4 max-lg:text-center relative">Why choose Cyberlearnlimited?</h2>
+            <p class="text-lg leading-8 text-gray-500">
+                Building digital solutions that drive measurable business results
+            </p>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-orange-100 p-3 rounded-full">
+                            <svg class="w-6 h-6 text-orange-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 16H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1M9 12H4m8 8V9h8v11h-8Zm0 0H9m8-4a1 1 0 1 0-2 0 1 1 0 0 0 2 0Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800">Agile Development</h3>
+                    </div>
+                    <p class="text-slate-600">
+                        We use agile methodologies to deliver software in iterative sprints, ensuring flexibility and continuous improvement throughout the project lifecycle.
+                    </p>
+                </div>
+            
+                <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-orange-100 p-3 rounded-full">
+                            <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800">Modern Tech Stack</h3>
+                    </div>
+                    <p class="text-slate-600">
+                        We leverage cutting-edge technologies including React, Python, Node.js, and cloud platforms to build scalable, performant applications.
+                    </p>
+                </div>
+            
+                <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-orange-100 p-3 rounded-full">
+                            <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800">Dedicated Teams</h3>
+                    </div>
+                    <p class="text-slate-600">
+                        Our experienced developers, designers, and project managers work as an extension of your team to deliver exceptional results.
+                    </p>
+                </div>
+                <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-orange-100 p-3 rounded-full">
+                            <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800">Quality Assurance</h3>
+                    </div>
+                    <p class="text-slate-600">
+                        Rigorous testing protocols including unit tests, integration tests, and user acceptance testing ensure bug-free, reliable software delivery.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto bg-gradient-to-r from-orange-600 to-orange-950 rounded-2xl p-12 text-center">
+            <div class="mx-auto flex justify-center items-center mb-6">
+                <div class="w-[200px] items-center justify-center bg-white/20 border-white/30 border flex flex-row rounded-full px-4 py-2">
+                    <svg class="w-6 h-6 mr-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                    </svg>
+                    <span class="text-white">Let's Build</span>
+                </div>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Build Something Amazing?</h2>
+            <p class="text-lg text-orange-100 max-w-2xl mx-auto mb-8">
+                Join hundreds of businesses who trust Cyberlearnlimited to bring their digital vision to life with custom software solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'account_type_choice' %}" class="bg-white items-center text-center text-orange-700 hover:bg-orange-50 px-8 py-3 rounded-md font-medium transition-colors duration-300">
+                        Start Your Project
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

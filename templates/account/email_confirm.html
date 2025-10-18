@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+{% load static tailwind_tags %}
+{% load static %}
+{% load account %}
+{% include 'main/includes/messages.html' %}
+
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxUnite - Verify Email</title>
+</head>
+<body>
+    <div class="flex h-screen items-center justify-center w-full px-3">
+        <div class="flex flex-col gap-6 px-6 py-12 lg:px-8 w-full bg-orange-50 max-w-xl border border-slate-200 rounded-md shadow-lg">
+            <div class="max-w-xl px-5 text-center">
+                {% if confirmation %}
+                {% user_display confirmation.email_address.user as user_display %}
+                {% if can_confirm %}
+                <div class="relative flex flex-col items-center justify-center overflow-hidden py-6 sm:py-12">
+                    <div class="max-w-xl px-5 text-center">
+                        <h2 class="mb-2 text-xl font-bold text-primary font-barlow">{% trans "Confirm E-mail Address" %}</h2>
+                        <p class="mb-2 text-sm font-barlow text-primary">
+                            {% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}
+                        </p>
+                        <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                            {% csrf_token %}
+                            <button type="submit" class="font-barlow mt-3 hover:cursor-pointer ease-in duration-300 inline-block w-96 rounded bg-orange-600 px-5 py-3 font-medium text-white hover:bg-orange-700">{% trans 'Confirm' %}</button>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 " role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                    <span class="font-medium">Error!</span> {% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}.
+                    </div>
+                </div>
+                {% endif %}
+                {% else %}
+                {% url 'account_email' as email_url %}
+                    <div class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-6 sm:py-12 bg-white">
+                        <div class="max-w-xl px-5 text-center">
+                        <h2 class="mb-2 text-[42px] font-bold text-primary font-barlow">{% trans "Confirm E-mail Address" %}</h2>
+                        <p class="mb-2 text-lg font-barlow text-primary">
+                            {% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}
+                        </p>
+                        <a href="{% url 'home' %}" class="font-barlow mt-3 inline-block w-96 rounded bg-secondary px-5 py-3 font-medium text-cream hover:bg-primary">Back Home →</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

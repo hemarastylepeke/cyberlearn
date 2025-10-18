@@ -1,0 +1,418 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Hero Section -->
+    <section id="Hero Section" class="relative md:h-screen flex items-center justify-center">
+        <div class="absolute inset-0 -z-10 w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="py-20 md:py-10 sm:py-48 lg:py-28 px-4 max-w-7xl">
+            <div class="flex flex-col md:flex-row gap-4 w-full items-center">
+                <div class="w-full flex flex-col gap-6">
+                    <div class="flex mx-auto justify-center items-center">
+                        <div class="order-1 md:order-2 flex flex-col gap-2 md:gap-6">
+                            <h2 class="md:leading-18 text-slate-950 leading-12 md:text-6xl text-4xl font-bold">
+                                <span>Transform Your Digital</span>
+                            </h2>
+                            <h2 class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-purple-950 leading-18 md:text-6xl text-4xl font-semibold">Presence Today</h2>
+                            <p class="text-lg leading-8 text-slate-600 max-w-3xl">
+                                Elevate your business with cutting-edge software solutions, web development, mobile apps, and SEO services.
+                                <span class="text-orange-600 font-semibold">TechForge</span> is your partner for complete digital transformation.
+                            </p>
+                            <div class="flex flex-col md:flex-row gap-4 w-full">
+                                <a href="{% url 'account_login' %}" class="bg-gradient-to-r from-orange-600 to-orange-950 hover:bg-gradient-to-r hover:from-orange-950 hover:to-orange-600 text-white rounded-md flex transition-colors duration-300 ease-in w-full items-center justify-center py-3 text-center">Schedule Consultation</a>
+                                {% if not user.is_authenticated %}
+                                    <a href="{% url 'account_type_choice' %}" class="flex text-center items-center justify-center border border-orange-500 rounded-md w-full py-3">Start Your Project</a>
+                                {% endif %}
+                            </div>
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-2xl mx-auto lg:mx-0 mt-4">
+                                <div class="bg-white/80 backdrop-blur border border-orange-200 rounded-full py-2 px-4 text-center text-sm font-medium text-orange-800 hover:bg-orange-50 transition-colors cursor-pointer">Web Dev</div>
+                                <div class="bg-white/80 backdrop-blur border border-orange-200 rounded-full py-2 px-4 text-center text-sm font-medium text-orange-800 hover:bg-orange-50 transition-colors cursor-pointer">Mobile Apps</div>
+                                <div class="bg-white/80 backdrop-blur border border-orange-200 rounded-full py-2 px-4 text-center text-sm font-medium text-orange-800 hover:bg-orange-50 transition-colors cursor-pointer">SEO</div>
+                                <div class="bg-white/80 backdrop-blur border border-orange-200 rounded-full py-2 px-4 text-center text-sm font-medium text-orange-800 hover:bg-orange-50 transition-colors cursor-pointer">Cloud</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full order-2 md:order-1">
+                    <div class="relative bg-white rounded-2xl shadow-2xl p-8 border border-orange-100">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="ml-4 text-sm text-slate-500">CyberlearnlimitedDevelopment Pipeline</span>
+                        </div>
+                        <div class="space-y-4 conversation-container">
+                            <!-- Planning Phase -->
+                            <div class="flex items-start gap-3 message animate-in">
+                                <div class="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center p-1 bg-orange-50">
+                                    <svg class="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                    </svg>
+                                </div>
+                                <div class="bg-orange-50 rounded-lg p-3 flex-1">
+                                    <p class="text-sm text-slate-700">Discovery & Planning Complete</p>
+                                    <p class="text-xs text-slate-500 mt-1">Requirements gathered • Architecture designed</p>
+                                </div>
+                            </div>
+
+                            <!-- Design Phase -->
+                            <div class="flex items-start gap-3 message animate-in" style="animation-delay: 0.9s">
+                                <div class="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center p-1 bg-purple-50">
+                                    <svg class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                    </svg>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-3 flex-1">
+                                    <p class="text-sm text-slate-700">UI/UX Design Approved</p>
+                                    <p class="text-xs text-slate-500 mt-1">Wireframes • Mockups • Prototypes</p>
+                                </div>
+                            </div>
+
+                            <!-- Development Phase -->
+                            <div class="flex items-start gap-3 message animate-in" style="animation-delay: 1.8s">
+                                <div class="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center p-1 bg-green-50">
+                                    <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-3 flex-1">
+                                    <p class="text-sm text-slate-700">Development In Progress</p>
+                                    <p class="text-xs text-slate-500 mt-1">Clean code • Agile sprints • Daily updates</p>
+                                </div>
+                            </div>
+
+                            <!-- Testing Phase -->
+                            <div class="flex items-start gap-3 message animate-in" style="animation-delay: 2.7s">
+                                <div class="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center p-1 bg-amber-50">
+                                    <svg class="h-6 w-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div class="bg-amber-50 rounded-lg p-3 flex-1">
+                                    <p class="text-sm text-slate-700">QA Testing & Optimization</p>
+                                    <p class="text-xs text-slate-500 mt-1">Bug fixes • Performance tuning • Security audit</p>
+                                </div>
+                            </div>
+
+                            <!-- Launch Phase -->
+                            <div class="flex items-start gap-3 message animate-in" style="animation-delay: 3.6s">
+                                <div class="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center p-1 bg-red-50">
+                                    <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <div class="bg-red-50 rounded-lg p-3 flex-1">
+                                    <p class="text-sm text-slate-700">Launch & Support</p>
+                                    <p class="text-xs text-slate-500 mt-1">Deployment • Monitoring • Maintenance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-center justify-center gap-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-xs text-slate-500">Agile development in action</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-slate-50">
+        <div class="max-w-7xl py-12 px-3 relative mx-auto sm:py-32 lg:py-32">
+            <div class="mx-auto flex justify-center items-center mb-8">
+                <div
+                    class="w-[200px] items-center justify-center bg-orange-100/50 border-orange-400 border flex flex-row rounded-full px-4 py-2">
+                    <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+                    </svg> 
+                    <span>Services</span>
+                </div>
+            </div>
+            <div class="flex flex-col gap-6 items-center mb-4">
+                <h1 class="text-center text-4xl font-bold text-slate-950">Comprehensive Software Solutions</h1>
+                <p class="text-center text-lg leading-8 text-slate-600 max-w-3xl">
+                    From concept to deployment, we deliver end-to-end software development services. Our expert team crafts scalable, high-performance solutions tailored to your business needs.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <!-- Web Development -->
+                <div class="bg-white shadow-lg rounded-xl p-6 flex items-center justify-center flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex justify-center items-center bg-orange-100/50 border border-orange-400 rounded-full w-16 h-16">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h2 class="text-center text-2xl font-bold text-slate-600 mt-4">Web Development</h2>
+                    <p class="text-center text-sm leading-7 text-slate-500 mt-3">
+                        Custom web applications built with modern frameworks like React, Django, and Node.js. Responsive design, progressive web apps, e-commerce platforms, and enterprise solutions that scale with your business.
+                    </p>
+                    <div class="mt-4 text-sm text-orange-600 font-medium">
+                        Full-Stack • Responsive • Scalable
+                    </div>
+                </div>
+
+                <!-- Mobile App Development -->
+                <div class="bg-white shadow-lg rounded-xl p-6 flex items-center justify-center flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex justify-center items-center bg-green-100/50 border border-green-400 rounded-full w-16 h-16">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-center text-2xl font-bold text-slate-600 mt-4">Mobile App Development</h2>
+                    <p class="text-center text-sm leading-7 text-slate-500 mt-3">
+                        Native Android and iOS apps, or cross-platform solutions with React Native and Flutter. From consumer apps to enterprise mobility solutions with seamless API integrations and offline capabilities.
+                    </p>
+                    <div class="mt-4 text-sm text-green-600 font-medium">
+                        Android • iOS • Cross-Platform
+                    </div>
+                </div>
+
+                <!-- SEO & Digital Marketing -->
+                <div class="bg-white shadow-lg rounded-xl p-6 flex items-center justify-center flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex justify-center items-center bg-purple-100/50 border border-purple-400 rounded-full w-16 h-16">
+                        <svg class="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-center text-2xl font-bold text-slate-600 mt-4">SEO & Digital Marketing</h2>
+                    <p class="text-center text-sm leading-7 text-slate-500 mt-3">
+                        Drive organic traffic with data-driven SEO strategies, technical optimization, content marketing, and local SEO. Comprehensive audits, keyword research, and performance tracking for measurable results.
+                    </p>
+                    <div class="mt-4 text-sm text-purple-600 font-medium">
+                        Rankings • Traffic • Conversions
+                    </div>
+                </div>
+
+                <!-- Cloud Solutions -->
+                <div class="bg-white shadow-lg rounded-xl p-6 flex items-center justify-center flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex justify-center items-center bg-indigo-100/50 border border-indigo-400 rounded-full w-16 h-16">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-center text-2xl font-bold text-slate-600 mt-4">Cloud Solutions</h2>
+                    <p class="text-center text-sm leading-7 text-slate-500 mt-3">
+                        Cloud migration, deployment, and management on AWS, Google Cloud, and Azure. Infrastructure as code, containerization with Docker/Kubernetes, and serverless architectures for optimal performance.
+                    </p>
+                    <div class="mt-4 text-sm text-indigo-600 font-medium">
+                        AWS • Azure • Google Cloud
+                    </div>
+                </div>
+
+                <!-- API Development -->
+                <div class="bg-white shadow-lg rounded-xl p-6 flex items-center justify-center flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex justify-center items-center bg-orange-100/50 border border-orange-400 rounded-full w-16 h-16">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-center text-2xl font-bold text-slate-600 mt-4">API Development & Integration</h2>
+                    <p class="text-center text-sm leading-7 text-slate-500 mt-3">
+                        RESTful and GraphQL APIs with robust documentation. Third-party integrations, payment gateways, CRM systems, and microservices architecture for seamless data flow across platforms.
+                    </p>
+                    <div class="mt-4 text-sm text-orange-600 font-medium">
+                        REST • GraphQL • Microservices
+                    </div>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="bg-white shadow-lg rounded-xl p-6 flex items-center justify-center flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex justify-center items-center bg-pink-100/50 border border-pink-400 rounded-full w-16 h-16">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h2 class="text-center text-2xl font-bold text-slate-600 mt-4">UI/UX Design</h2>
+                    <p class="text-center text-sm leading-7 text-slate-500 mt-3">
+                        User-centered design that converts. Wireframing, prototyping, usability testing, and design systems. Create intuitive interfaces that delight users and drive engagement across all devices.
+                    </p>
+                    <div class="mt-4 text-sm text-pink-600 font-medium">
+                        Research • Design • Testing
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 px-4 sm:px-6 relative mx-auto sm:py-24 lg:py-28 max-w-7xl bg-white">
+        <div class="mx-auto flex justify-center items-center mb-8">
+            <div class="w-[200px] items-center justify-center bg-orange-100/50 border-orange-400 border flex flex-row rounded-full px-4 py-2">
+                <svg class="w-6 h-6 mr-3 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                </svg>
+                <span class="text-orange-600">About Us</span>
+            </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1 flex flex-col gap-6">
+                <h2 class="text-4xl font-bold text-slate-950">Building Digital Solutions That Scale</h2>
+                <p class="text-lg leading-8 text-slate-600">
+                    Cyberlearnlimitedis a full-service software development agency dedicated to transforming businesses through innovative technology. 
+                    We combine technical expertise with creative problem-solving to deliver custom solutions that drive growth, efficiency, 
+                    and competitive advantage in the digital landscape.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-4">
+                    <div class="border-r border-slate-200 pr-6">
+                        <p class="font-bold text-orange-600 text-3xl">200+</p>
+                        <p class="text-slate-600 mt-2">Projects Delivered</p>
+                    </div>
+                    <div class="border-r border-slate-200 pr-6">
+                        <p class="font-bold text-orange-600 text-3xl">98%</p>
+                        <p class="text-slate-600 mt-2">Client Satisfaction</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-orange-600 text-3xl">15+</p>
+                        <p class="text-slate-600 mt-2">Years Experience</p>
+                    </div>
+                </div>
+                <a href="{% url 'about' %}" class="bg-gradient-to-r mt-4 from-orange-600 to-orange-950 hover:bg-gradient-to-r hover:from-orange-950 hover:to-orange-600 text-white rounded-md transition-colors duration-300 ease-in w-full md:max-w-sm items-center justify-center py-3 px-6 text-center">Want to Know more?</a>
+            </div>
+
+            
+            <div class="flex-1 hidden md:block">
+                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden border border-orange-100">
+                    <img src="{% static 'images/interpretation-team.png' %}" alt="Cyberlearnlimiteddevelopment team" class="w-full h-full">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                        <p class="text-white font-medium">Our expert developers crafting innovative solutions worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="bg-orange-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800">Dedicated Support</h3>
+                </div>
+                <p class="text-slate-600">
+                    Post-launch support and maintenance ensure your applications run smoothly. We provide ongoing updates, monitoring, and technical assistance.
+                </p>
+            </div>
+
+            <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="bg-orange-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800">Agile Development</h3>
+                </div>
+                <p class="text-slate-600">
+                    We follow agile methodologies with iterative sprints and regular feedback cycles. This ensures faster delivery, flexibility to changes, and transparency throughout the development process.
+                </p>
+            </div>
+
+            <div class="bg-orange-50/50 border border-orange-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="bg-orange-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800">Quality Assurance</h3>
+                </div>
+                <p class="text-slate-600">
+                    Rigorous testing and quality control processes guarantee bug-free, secure applications. Our QA team conducts comprehensive testing at every stage to deliver reliable software solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="flex flex-col mx-auto justify-center items-center bg-slate-50">
+        <div class="py-28 sm:py-32 lg:py-32 px-4 w-full max-w-7xl">
+            <div class="mx-auto flex justify-center items-center mb-8">
+                <div class="w-[200px] items-center justify-center bg-orange-100/50 border-orange-400 border flex flex-row rounded-full px-4 py-2">
+                    <svg class="w-6 h-6 mr-3 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                    <span class="text-orange-600">Client Voices</span>
+                </div>
+            </div>
+            <div class="flex flex-col gap-6 items-center mb-4">
+                <h2 class="text-center text-4xl font-bold text-slate-950">What Our Clients Say</h2>
+                <p class="text-center leading-8 text-slate-500">Hear from businesses and startups who have transformed their digital presence with our solutions.</p>
+            </div>
+            <div class="flex w-full md:flex-row flex-col gap-8">
+                <div class="flex flex-col gap-6 w-full">
+                    <div class="px-4 py-4 lg:py-6 lg:px-6 bg-slate-100 rounded-lg cursor-pointer" data-commentor="1">
+                        <div class="inline-flex gap-3 items-center">
+                            <img src="{% static 'images/swahili-speaker.jpg' %}" alt="Sarah Mitchell" class="h-8 w-8 rounded-full">
+                            <h2 class="text-slate-900 barlow text-lg">Sarah Mitchell</h2>
+                        </div>
+                        <p class="text-slate-600">CEO, HealthTech Innovations</p>
+                    </div>
+                    <div class="px-4 py-4 lg:py-6 lg:px-6 border border-slate-200 rounded-lg cursor-pointer" data-commentor="2">
+                        <div class="inline-flex gap-3 items-center">
+                            <img src="{% static 'images/english-speaker.png' %}" alt="David Kamau" class="h-8 w-8 rounded-full">
+                            <h2 class="text-slate-900 barlow text-lg">David Kamau</h2>
+                        </div>
+                        <p class="text-slate-600">Founder, E-Commerce Startup</p>
+                    </div>
+                    <div class="px-4 py-4 lg:py-6 lg:px-6 border border-slate-200 rounded-lg cursor-pointer" data-commentor="3">
+                        <div class="inline-flex gap-3 items-center">
+                            <img src="{% static 'images/oromo-speaker.png' %}" alt="Maria Rodriguez" class="h-8 w-8 rounded-full">
+                            <h2 class="text-slate-900 barlow text-lg">Maria Rodriguez</h2>
+                        </div>
+                        <p class="text-slate-600">CMO, Digital Marketing Agency</p>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <div id="comment-1" class="comment">
+                        <svg class="h-12 mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
+                        </svg> 
+                        <h1 class="text-slate-700 font-bold text-3xl">Custom Healthcare Platform Success</h1>
+                        <p class="text-slate-600 leading-8">"Cyberlearnlimitedbuilt us a comprehensive patient management system that streamlined our operations by 60%. Their team understood our complex healthcare requirements and delivered a HIPAA-compliant solution that exceeded expectations. The mobile app integration has been a game-changer for our patients."</p>
+                    </div>
+                    <div id="comment-2" class="comment hidden">
+                        <svg class="h-12 mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
+                        </svg> 
+                        <h1 class="text-slate-700 font-bold text-3xl">E-Commerce Platform That Scales</h1>
+                        <p class="text-slate-600 leading-8">"Our online store went from concept to launch in just 8 weeks. The platform handles thousands of transactions daily without any hiccups. Their SEO optimization increased our organic traffic by 250% in the first quarter. Best investment we've made for our business growth."</p>
+                    </div>
+                    <div id="comment-3" class="comment hidden">
+                        <svg class="h-12 mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
+                        </svg> 
+                        <h1 class="text-slate-700 font-bold text-3xl">SEO Results That Drive Revenue</h1>
+                        <p class="text-slate-600 leading-8">"Working with Cyberlearnlimitedon our SEO strategy has transformed our client acquisition. We now rank on page 1 for our top 15 keywords, and our website traffic has tripled. Their data-driven approach and transparent reporting make them an invaluable partner."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto bg-gradient-to-r from-orange-500 to-orange-950 rounded-2xl p-12 text-center">
+            <div class="mx-auto flex justify-center items-center mb-6">
+                <div class="w-[200px] items-center justify-center bg-white/20 border-white/30 border flex flex-row rounded-full px-4 py-2">
+                    <svg class="w-6 h-6 mr-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
+                    </svg>
+                    <span class="text-white">Get Started</span>
+                </div>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Build Something Amazing?</h2>
+            <p class="text-lg text-orange-100 max-w-2xl mx-auto mb-8">
+                Let's transform your ideas into powerful digital solutions. Get a free consultation and project estimate today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <a href="{% url 'clientsignup' %}" class="bg-white items-center text-center text-orange-700 hover:bg-orange-50 px-8 py-3 rounded-md font-medium transition-colors duration-300">
+                    Start Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}"

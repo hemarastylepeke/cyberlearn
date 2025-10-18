@@ -1,0 +1,502 @@
+{% extends "main/loginbase.html" %}
+{% block content %}
+{% load static %}
+    <div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+        <div class="relative left-1/2 -z-10 aspect-1155/678 w-144.5 max-w-none -translate-x-1/2 rotate-30 bg-linear-to-tr from-orange-500 to-orange-900 opacity-30 sm:left-[calc(50%-40rem)] sm:w-288.75" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+    <div class="mx-auto max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="w-full">
+           <h2 class="text-4xl font-semibold tracking-tight text-balance text-slate-700 sm:text-5xl">Submit a project now</h2> 
+           <p class="mt-6 text-base leading-7 text-slate-600 mb-4">
+               Submit your project details below, and our team will get back to you promptly to discuss how we can assist you in achieving your goals.
+           </p>
+           <div class="grid grid-cols-1 gap-3">
+                <div class="mt-4 items-center inline-flex gap-4 max-w-xs text-slate-600 border-b border-slate-300 pb-3">
+                    <div class="bg-orange-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold italic">Search Engine Optimization</p>
+                    </div>
+                </div>
+                <div class="mt-4 items-center inline-flex gap-4 max-w-xs text-slate-600 border-b border-slate-300 pb-3">
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold italic">Web application development</p>
+                    </div>
+                </div>
+                <div class="mt-4 items-center inline-flex gap-4 max-w-xs text-slate-600 border-b border-slate-300 pb-3">
+                    <div class="bg-purple-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold italic">Custom software development</p>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <form action="{% url 'submit_project' %}" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20 w-full border p-6 rounded-2xl shadow-md border-slate-300">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <!-- Firstname -->
+                <div>
+                    <label for="id_first_name" class="block text-sm/6 font-semibold text-slate-600">First name</label>
+                    <div class="mt-2.5">
+                        <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-orange-600">
+                            <div class="grid shrink-0 grid-cols-1 focus-within:relative">
+                                <svg class="pointer-events-none col-start-1 row-start-1 ml-4 mr-2 size-6 self-center justify-self-end text-gray-500 sm:size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                            </div>
+                            <input type="text" maxlength="100" required name="first_name" id="id_first_name" autocomplete="family-name" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="John">
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Name -->
+                <div>
+                    <label for="id_last_name" class="block text-sm/6 font-semibold text-slate-600">Last name</label>
+                    <div class="mt-2.5">
+                        <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-orange-600">
+                            <div class="grid shrink-0 grid-cols-1 focus-within:relative">
+                                <svg class="pointer-events-none col-start-1 row-start-1 ml-4 mr-2 size-6 self-center justify-self-end text-gray-500 sm:size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                            </div>
+                            <input type="text" name="last_name" maxlength="100" required id="id_last_name" autocomplete="family-name" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="Doe">
+                        </div>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div>
+                    <label for="id_email" class="block text-sm/6 font-semibold text-slate-600">Email</label>
+                    <div class="mt-2.5">
+                        <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-orange-600">
+                            <div class="grid shrink-0 grid-cols-1 focus-within:relative">
+                                <svg class="pointer-events-none col-start-1 row-start-1 ml-4 mr-2 size-6 self-center justify-self-end text-gray-500 sm:size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+                                </svg>
+                            </div>
+                            <input type="email" value="{{ request.user.email }}" name="email" maxlength="254" required id="id_email" autocomplete="email" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="johndoe@mail.com">
+                        </div>
+                    </div>
+                </div>
+                <!-- Organization -->
+                <div>
+                    <label for="id_organization" class="block text-sm/6 font-semibold text-slate-600">Organization</label>
+                    <div class="mt-2.5">
+                        <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-orange-600">
+                            <div class="grid shrink-0 grid-cols-1 focus-within:relative">
+                                <svg class="pointer-events-none col-start-1 row-start-1 ml-4 mr-2 size-6 self-center justify-self-end text-gray-500 sm:size-4"  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z"/>
+                                </svg>
+                            </div>
+                            <input type="text" required name="organization" maxlength="200" required id="id_organization" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="Cyberlearnlimited">
+                        </div>
+                    </div>
+                </div>
+                <!-- Phone number -->
+                <div>
+                    <label for="id_phone" class="block text-sm/6 font-semibold text-slate-600">Phone number</label>
+                    <div class="mt-2.5">
+                        <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-orange-600">
+                            <div class="grid shrink-0 grid-cols-1 focus-within:relative">
+                                <svg class="pointer-events-none col-start-1 row-start-1 ml-4 mr-2 size-6 self-center justify-self-end text-gray-500 sm:size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.427 14.768 17.2 13.542a1.733 1.733 0 0 0-2.45 0l-.613.613a1.732 1.732 0 0 1-2.45 0l-1.838-1.84a1.735 1.735 0 0 1 0-2.452l.612-.613a1.735 1.735 0 0 0 0-2.452L9.237 5.572a1.6 1.6 0 0 0-2.45 0c-3.223 3.2-1.702 6.896 1.519 10.117 3.22 3.221 6.914 4.745 10.12 1.535a1.601 1.601 0 0 0 0-2.456Z"/>
+                                </svg>
+                            </div>
+                            <input required type="text" name="phone" maxlength="15" id="id_phone" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="123-456-7890">
+                        </div>
+                    </div>
+                </div>                
+                <!-- Region -->
+                <div class="relative group">
+                    <label for="id_region" class="block text-sm/6 font-semibold text-slate-600">Your Region</label>
+                    <input required type="hidden" name="region" id="id_region" maxlength="100" required>
+                    <button type="button" id="countries-dropdown-btn" class="flex justify-between hover:cursor-pointer mt-2.5 w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-500">
+                        <div class="flex items-center">
+                            <span id="selected-flag" class="mr-2"></span>
+                            <span id="selected-country" class="text-slate-400">Select Country</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="countries-dropdown-menu" class="hidden absolute z-10 w-full mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1 max-h-60 overflow-y-auto">
+                        <input id="countries-search-input" class="sticky top-0 block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-300 focus:outline-none" type="text" placeholder="Search countries..." autocomplete="off">
+                        <div id="countries-list" class="mt-1">
+                            <!-- Countries will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>                
+                <div class="sm:col-span-2">
+                    <label for="id_message" class="block text-sm/6 font-semibold text-slate-600">Tell us about your project</label>
+                    <div class="mt-2.5">
+                        <textarea required name="message" id="id_message" rows="6" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600"></textarea>
+                    </div>
+                </div>
+                <!-- How did you hear about us -->
+                <div class="sm:col-span-2">
+                    <label for="id_how_did_you_hear" class="block text-sm/6 font-semibold text-slate-600">How did you hear about us?</label>
+                    <select id="id_how_did_you_hear" name="how_did_you_hear" maxlength="200" class="flex justify-between hover:cursor-pointer mt-2.5 w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-500">
+                        <option selected value="Google Search">Google Search</option>
+                        <option value="Sponsored Ad">Sponsored Ad</option>
+                        <option value="Customer Referral">Customer Referral</option>
+                        <option value="Conference or Event">Conference or Event</option>
+                        <option value="Cyberlearnlimited Sales Team">Cyberlearnlimited Sales Team</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-10">
+                <button type="submit" class="bg-gradient-to-r hover:cursor-pointer w-full from-orange-600 to-orange-950 hover:bg-gradient-to-r hover:from-orange-950 hover:to-orange-600 text-white px-8 py-3 rounded-md transition-all duration-300 ease-in">Let's talk</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // List of countries with their flags (using country codes)
+    const countries = [
+        { code: 'AD', name: 'Andorra' },
+        { code: 'AE', name: 'United Arab Emirates' },
+        { code: 'AF', name: 'Afghanistan' },
+        { code: 'AG', name: 'Antigua and Barbuda' },
+        { code: 'AI', name: 'Anguilla' },
+        { code: 'AL', name: 'Albania' },
+        { code: 'AM', name: 'Armenia' },
+        { code: 'AO', name: 'Angola' },
+        { code: 'AQ', name: 'Antarctica' },
+        { code: 'AR', name: 'Argentina' },
+        { code: 'AS', name: 'American Samoa' },
+        { code: 'AT', name: 'Austria' },
+        { code: 'AU', name: 'Australia' },
+        { code: 'AW', name: 'Aruba' },
+        { code: 'AX', name: 'Åland Islands' },
+        { code: 'AZ', name: 'Azerbaijan' },
+        { code: 'BA', name: 'Bosnia and Herzegovina' },
+        { code: 'BB', name: 'Barbados' },
+        { code: 'BD', name: 'Bangladesh' },
+        { code: 'BE', name: 'Belgium' },
+        { code: 'BF', name: 'Burkina Faso' },
+        { code: 'BG', name: 'Bulgaria' },
+        { code: 'BH', name: 'Bahrain' },
+        { code: 'BI', name: 'Burundi' },
+        { code: 'BJ', name: 'Benin' },
+        { code: 'BL', name: 'Saint Barthélemy' },
+        { code: 'BM', name: 'Bermuda' },
+        { code: 'BN', name: 'Brunei' },
+        { code: 'BO', name: 'Bolivia' },
+        { code: 'BQ', name: 'Caribbean Netherlands' },
+        { code: 'BR', name: 'Brazil' },
+        { code: 'BS', name: 'Bahamas' },
+        { code: 'BT', name: 'Bhutan' },
+        { code: 'BV', name: 'Bouvet Island' },
+        { code: 'BW', name: 'Botswana' },
+        { code: 'BY', name: 'Belarus' },
+        { code: 'BZ', name: 'Belize' },
+        { code: 'CA', name: 'Canada' },
+        { code: 'CC', name: 'Cocos Islands' },
+        { code: 'CD', name: 'Democratic Republic of the Congo' },
+        { code: 'CF', name: 'Central African Republic' },
+        { code: 'CG', name: 'Republic of the Congo' },
+        { code: 'CH', name: 'Switzerland' },
+        { code: 'CI', name: 'Côte d\'Ivoire' },
+        { code: 'CK', name: 'Cook Islands' },
+        { code: 'CL', name: 'Chile' },
+        { code: 'CM', name: 'Cameroon' },
+        { code: 'CN', name: 'China' },
+        { code: 'CO', name: 'Colombia' },
+        { code: 'CR', name: 'Costa Rica' },
+        { code: 'CU', name: 'Cuba' },
+        { code: 'CV', name: 'Cape Verde' },
+        { code: 'CW', name: 'Curaçao' },
+        { code: 'CX', name: 'Christmas Island' },
+        { code: 'CY', name: 'Cyprus' },
+        { code: 'CZ', name: 'Czech Republic' },
+        { code: 'DE', name: 'Germany' },
+        { code: 'DJ', name: 'Djibouti' },
+        { code: 'DK', name: 'Denmark' },
+        { code: 'DM', name: 'Dominica' },
+        { code: 'DO', name: 'Dominican Republic' },
+        { code: 'DZ', name: 'Algeria' },
+        { code: 'EC', name: 'Ecuador' },
+        { code: 'EE', name: 'Estonia' },
+        { code: 'EG', name: 'Egypt' },
+        { code: 'EH', name: 'Western Sahara' },
+        { code: 'ER', name: 'Eritrea' },
+        { code: 'ES', name: 'Spain' },
+        { code: 'ET', name: 'Ethiopia' },
+        { code: 'FI', name: 'Finland' },
+        { code: 'FJ', name: 'Fiji' },
+        { code: 'FK', name: 'Falkland Islands' },
+        { code: 'FM', name: 'Micronesia' },
+        { code: 'FO', name: 'Faroe Islands' },
+        { code: 'FR', name: 'France' },
+        { code: 'GA', name: 'Gabon' },
+        { code: 'GB', name: 'United Kingdom' },
+        { code: 'GD', name: 'Grenada' },
+        { code: 'GE', name: 'Georgia' },
+        { code: 'GF', name: 'French Guiana' },
+        { code: 'GG', name: 'Guernsey' },
+        { code: 'GH', name: 'Ghana' },
+        { code: 'GI', name: 'Gibraltar' },
+        { code: 'GL', name: 'Greenland' },
+        { code: 'GM', name: 'Gambia' },
+        { code: 'GN', name: 'Guinea' },
+        { code: 'GP', name: 'Guadeloupe' },
+        { code: 'GQ', name: 'Equatorial Guinea' },
+        { code: 'GR', name: 'Greece' },
+        { code: 'GS', name: 'South Georgia and the South Sandwich Islands' },
+        { code: 'GT', name: 'Guatemala' },
+        { code: 'GU', name: 'Guam' },
+        { code: 'GW', name: 'Guinea-Bissau' },
+        { code: 'GY', name: 'Guyana' },
+        { code: 'HK', name: 'Hong Kong' },
+        { code: 'HM', name: 'Heard Island and McDonald Islands' },
+        { code: 'HN', name: 'Honduras' },
+        { code: 'HR', name: 'Croatia' },
+        { code: 'HT', name: 'Haiti' },
+        { code: 'HU', name: 'Hungary' },
+        { code: 'ID', name: 'Indonesia' },
+        { code: 'IE', name: 'Ireland' },
+        { code: 'IL', name: 'Israel' },
+        { code: 'IM', name: 'Isle of Man' },
+        { code: 'IN', name: 'India' },
+        { code: 'IO', name: 'British Indian Ocean Territory' },
+        { code: 'IQ', name: 'Iraq' },
+        { code: 'IR', name: 'Iran' },
+        { code: 'IS', name: 'Iceland' },
+        { code: 'IT', name: 'Italy' },
+        { code: 'JE', name: 'Jersey' },
+        { code: 'JM', name: 'Jamaica' },
+        { code: 'JO', name: 'Jordan' },
+        { code: 'JP', name: 'Japan' },
+        { code: 'KE', name: 'Kenya' },
+        { code: 'KG', name: 'Kyrgyzstan' },
+        { code: 'KH', name: 'Cambodia' },
+        { code: 'KI', name: 'Kiribati' },
+        { code: 'KM', name: 'Comoros' },
+        { code: 'KN', name: 'Saint Kitts and Nevis' },
+        { code: 'KP', name: 'North Korea' },
+        { code: 'KR', name: 'South Korea' },
+        { code: 'KW', name: 'Kuwait' },
+        { code: 'KY', name: 'Cayman Islands' },
+        { code: 'KZ', name: 'Kazakhstan' },
+        { code: 'LA', name: 'Laos' },
+        { code: 'LB', name: 'Lebanon' },
+        { code: 'LC', name: 'Saint Lucia' },
+        { code: 'LI', name: 'Liechtenstein' },
+        { code: 'LK', name: 'Sri Lanka' },
+        { code: 'LR', name: 'Liberia' },
+        { code: 'LS', name: 'Lesotho' },
+        { code: 'LT', name: 'Lithuania' },
+        { code: 'LU', name: 'Luxembourg' },
+        { code: 'LV', name: 'Latvia' },
+        { code: 'LY', name: 'Libya' },
+        { code: 'MA', name: 'Morocco' },
+        { code: 'MC', name: 'Monaco' },
+        { code: 'MD', name: 'Moldova' },
+        { code: 'ME', name: 'Montenegro' },
+        { code: 'MF', name: 'Saint Martin' },
+        { code: 'MG', name: 'Madagascar' },
+        { code: 'MH', name: 'Marshall Islands' },
+        { code: 'MK', name: 'North Macedonia' },
+        { code: 'ML', name: 'Mali' },
+        { code: 'MM', name: 'Myanmar' },
+        { code: 'MN', name: 'Mongolia' },
+        { code: 'MO', name: 'Macao' },
+        { code: 'MP', name: 'Northern Mariana Islands' },
+        { code: 'MQ', name: 'Martinique' },
+        { code: 'MR', name: 'Mauritania' },
+        { code: 'MS', name: 'Montserrat' },
+        { code: 'MT', name: 'Malta' },
+        { code: 'MU', name: 'Mauritius' },
+        { code: 'MV', name: 'Maldives' },
+        { code: 'MW', name: 'Malawi' },
+        { code: 'MX', name: 'Mexico' },
+        { code: 'MY', name: 'Malaysia' },
+        { code: 'MZ', name: 'Mozambique' },
+        { code: 'NA', name: 'Namibia' },
+        { code: 'NC', name: 'New Caledonia' },
+        { code: 'NE', name: 'Niger' },
+        { code: 'NF', name: 'Norfolk Island' },
+        { code: 'NG', name: 'Nigeria' },
+        { code: 'NI', name: 'Nicaragua' },
+        { code: 'NL', name: 'Netherlands' },
+        { code: 'NO', name: 'Norway' },
+        { code: 'NP', name: 'Nepal' },
+        { code: 'NR', name: 'Nauru' },
+        { code: 'NU', name: 'Niue' },
+        { code: 'NZ', name: 'New Zealand' },
+        { code: 'OM', name: 'Oman' },
+        { code: 'PA', name: 'Panama' },
+        { code: 'PE', name: 'Peru' },
+        { code: 'PF', name: 'French Polynesia' },
+        { code: 'PG', name: 'Papua New Guinea' },
+        { code: 'PH', name: 'Philippines' },
+        { code: 'PK', name: 'Pakistan' },
+        { code: 'PL', name: 'Poland' },
+        { code: 'PM', name: 'Saint Pierre and Miquelon' },
+        { code: 'PN', name: 'Pitcairn' },
+        { code: 'PR', name: 'Puerto Rico' },
+        { code: 'PS', name: 'Palestine' },
+        { code: 'PT', name: 'Portugal' },
+        { code: 'PW', name: 'Palau' },
+        { code: 'PY', name: 'Paraguay' },
+        { code: 'QA', name: 'Qatar' },
+        { code: 'RE', name: 'Réunion' },
+        { code: 'RO', name: 'Romania' },
+        { code: 'RS', name: 'Serbia' },
+        { code: 'RU', name: 'Russia' },
+        { code: 'RW', name: 'Rwanda' },
+        { code: 'SA', name: 'Saudi Arabia' },
+        { code: 'SB', name: 'Solomon Islands' },
+        { code: 'SC', name: 'Seychelles' },
+        { code: 'SD', name: 'Sudan' },
+        { code: 'SE', name: 'Sweden' },
+        { code: 'SG', name: 'Singapore' },
+        { code: 'SH', name: 'Saint Helena' },
+        { code: 'SI', name: 'Slovenia' },
+        { code: 'SJ', name: 'Svalbard and Jan Mayen' },
+        { code: 'SK', name: 'Slovakia' },
+        { code: 'SL', name: 'Sierra Leone' },
+        { code: 'SM', name: 'San Marino' },
+        { code: 'SN', name: 'Senegal' },
+        { code: 'SO', name: 'Somalia' },
+        { code: 'SR', name: 'Suriname' },
+        { code: 'SS', name: 'South Sudan' },
+        { code: 'ST', name: 'São Tomé and Príncipe' },
+        { code: 'SV', name: 'El Salvador' },
+        { code: 'SX', name: 'Sint Maarten' },
+        { code: 'SY', name: 'Syria' },
+        { code: 'SZ', name: 'Eswatini' },
+        { code: 'TC', name: 'Turks and Caicos Islands' },
+        { code: 'TD', name: 'Chad' },
+        { code: 'TF', name: 'French Southern Territories' },
+        { code: 'TG', name: 'Togo' },
+        { code: 'TH', name: 'Thailand' },
+        { code: 'TJ', name: 'Tajikistan' },
+        { code: 'TK', name: 'Tokelau' },
+        { code: 'TL', name: 'Timor-Leste' },
+        { code: 'TM', name: 'Turkmenistan' },
+        { code: 'TN', name: 'Tunisia' },
+        { code: 'TO', name: 'Tonga' },
+        { code: 'TR', name: 'Turkey' },
+        { code: 'TT', name: 'Trinidad and Tobago' },
+        { code: 'TV', name: 'Tuvalu' },
+        { code: 'TW', name: 'Taiwan' },
+        { code: 'TZ', name: 'Tanzania' },
+        { code: 'UA', name: 'Ukraine' },
+        { code: 'UG', name: 'Uganda' },
+        { code: 'UM', name: 'United States Minor Outlying Islands' },
+        { code: 'US', name: 'United States' },
+        { code: 'UY', name: 'Uruguay' },
+        { code: 'UZ', name: 'Uzbekistan' },
+        { code: 'VA', name: 'Vatican City' },
+        { code: 'VC', name: 'Saint Vincent and the Grenadines' },
+        { code: 'VE', name: 'Venezuela' },
+        { code: 'VG', name: 'British Virgin Islands' },
+        { code: 'VI', name: 'U.S. Virgin Islands' },
+        { code: 'VN', name: 'Vietnam' },
+        { code: 'VU', name: 'Vanuatu' },
+        { code: 'WF', name: 'Wallis and Futuna' },
+        { code: 'WS', name: 'Samoa' },
+        { code: 'YE', name: 'Yemen' },
+        { code: 'YT', name: 'Mayotte' },
+        { code: 'ZA', name: 'South Africa' },
+        { code: 'ZM', name: 'Zambia' },
+        { code: 'ZW', name: 'Zimbabwe' }
+    ];
+
+    const countriesButton = document.getElementById('countries-dropdown-btn');
+    const dropdownMenu = document.getElementById('countries-dropdown-menu');
+    const searchInput = document.getElementById('countries-search-input');
+    const countriesList = document.getElementById('countries-list');
+    const selectedFlag = document.getElementById('selected-flag');
+    const selectedCountry = document.getElementById('selected-country');
+    const regionInput = document.getElementById('id_region');
+    let isOpen = false;
+
+    // Function to create flag emoji from country code
+    function getFlagEmoji(countryCode) {
+        const codePoints = countryCode
+            .toUpperCase()
+            .split('')
+            .map(char => 127397 + char.charCodeAt());
+        return String.fromCodePoint(...codePoints);
+    }
+
+    // Function to populate countries list
+    function populateCountries(searchTerm = '') {
+        const filteredCountries = countries.filter(country => 
+            country.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        
+        countriesList.innerHTML = filteredCountries.map(country => `
+            <button type="button" 
+                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 active:bg-orange-100 cursor-pointer rounded-md flex items-center"
+                data-code="${country.code}"
+                data-name="${country.name}">
+                <span class="mr-2">${getFlagEmoji(country.code)}</span>
+                ${country.name}
+            </button>
+        `).join('');
+
+        // Add click event listeners to new country buttons
+        countriesList.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                const code = button.dataset.code;
+                const name = button.dataset.name;
+                selectCountry(code, name);
+                toggleDropdown();
+            });
+        });
+    }
+
+    // Function to select a country
+    function selectCountry(code, name) {
+        selectedFlag.textContent = getFlagEmoji(code);
+        selectedCountry.textContent = name;
+        selectedCountry.classList.remove('text-slate-400');
+        regionInput.value = name;
+    }
+
+    // Function to toggle the dropdown state
+    function toggleDropdown() {
+        isOpen = !isOpen;
+        dropdownMenu.classList.toggle('hidden', !isOpen);
+        if (isOpen) {
+            searchInput.focus();
+        }
+    }
+
+    // Initialize
+    populateCountries();
+
+    // Event Listeners
+    countriesButton.addEventListener('click', () => {
+        toggleDropdown();
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        populateCountries(e.target.value);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!dropdownMenu.contains(e.target) && !countriesButton.contains(e.target)) {
+            isOpen = false;
+            dropdownMenu.classList.add('hidden');
+        }
+    });
+</script>
+{% endblock %}
