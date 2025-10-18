@@ -14,7 +14,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['localhost', 'cyberlearn.up.railway.app']
+ALLOWED_HOSTS = ['localhost', 'cyberlearnlimited.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
@@ -187,7 +187,7 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Trusted origins
-CSRF_TRUSTED_ORIGINS = ['https://cyberlearn.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://cyberlearnlimited.com/']
 
 # Allauth settings
 SITE_ID = 1
