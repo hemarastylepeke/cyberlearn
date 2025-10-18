@@ -1,2 +1,2 @@
 release: python manage.py makemigrations && python manage.py migrate
-web: gunicorn voxunite.wsgi --log-file -
+web: gunicorn cyberlearn.wsgi --log-file -
