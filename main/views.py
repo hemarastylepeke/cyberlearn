@@ -1,10 +1,62 @@
 from accounts.models import CustomUser, ClientProfile, TranslatorProfile, ModeratorProfile
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import ContactForm, BookDemoForm
-from .models import BookDemo, ContactUs
+from .forms import ContactForm, BookDemoForm, NoteForm
+from .models import BookDemo, ContactUs, Note
+from django.views.decorators.http import require_http_methods
 from django.contrib import messages
 from django.utils import timezone
+
+
+@login_required
+def add_note(request):
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.user = request.user
+            note.save()
+            return redirect('dashboard')
+    else:
+        form = NoteForm()
+    
+    return render(request, 'main/add_note.html', {'form': form})
+
+@login_required
+def note_detail(request, note_id):
+    note = get_object_or_404(Note, id=note_id, user=request.user)
+    return render(request, 'main/note_detail.html', {'note': note})
+
+@login_required
+def all_notes(request):
+    notes = request.user.notes.all()
+    return render(request, 'main/client_notes.html', {'notes': notes})
+
+@login_required
+@require_http_methods(["POST"])
+def delete_note(request, note_id):
+    note = get_object_or_404(Note, id=note_id, user=request.user)
+    note.delete()
+    return redirect('all_notes')
+
+@login_required
+def edit_note(request, note_id):
+    note = get_object_or_404(Note, id=note_id, user=request.user)
+    if request.method == 'POST':
+        form = NoteForm(request.POST, instance=note)
+        if form.is_valid():
+            form.save()
+            return redirect('note_detail', note_id=note.id)
+    else:
+        form = NoteForm(instance=note)
+    
+    return render(request, 'main/add_note.html', {'form': form, 'note': note})
+
+def refundpolicy(request):
+    """
+    Render the refund policy page.
+    """
+    return render(request, 'main/refundpolicy.html')
 
 def home(request):
     """
@@ -95,6 +147,7 @@ def dashboard(request):
     """
     context = {}
     user = request.user
+    notes = request.user.notes.all()
     
     # Common data for all users
     context['user'] = user
@@ -158,7 +211,7 @@ def dashboard(request):
         context['user_bookings_count'] = user_bookings.count()
         context['recent_bookings'] = user_bookings.order_by('-created_at')[:5]
     
-    return render(request, 'main/dashboard.html', context)
+    return render(request, 'main/dashboard.html', {'notes': notes})
 
 
 @login_required(login_url='account_login')
@@ -573,34 +626,6 @@ def profile(request):
     }
     
     return render(request, 'main/profile.html', context)
-
-
-@login_required(login_url='account_login')
-def client_bookings(request):
-    """
-    Client to be able to view their bookings.
-    """
-    # Get bookings associated with the current authenticated user
-    user_bookings = BookDemo.objects.filter(user=request.user).order_by('-created_at')
-    
-    # Get booking statistics for the user
-    total_bookings = user_bookings.count()
-    pending_bookings = user_bookings.filter(status='pending').count()
-    completed_bookings = user_bookings.filter(status='completed').count()
-    
-    # Get recent bookings (last 5)
-    recent_bookings = user_bookings[:5]
-    
-    context = {
-        'bookings': user_bookings,
-        'total_bookings': total_bookings,
-        'pending_bookings': pending_bookings,
-        'completed_bookings': completed_bookings,
-        'recent_bookings': recent_bookings,
-        'user': request.user,
-    }
-    
-    return render(request, 'main/client_bookings.html', context)
 
 @login_required(login_url='account_login')
 def interpreter_assigned_bookings(request):

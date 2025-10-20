@@ -7,12 +7,12 @@ urlpatterns = [
     path('terms/', views.terms, name='terms'),
     path('profile/', views.profile, name='profile'),
     path('privacy/', views.privacy, name='privacy'),
+    path('refundpolicy/', views.refundpolicy, name='refundpolicy'),
     path('contact/', views.contact, name='contact'),
     path('services/', views.services, name='services'),
     path('submit-project/', views.bookdemo, name='submit_project'),
     path('languages/', views.languages, name='languages'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('client_bookings/', views.client_bookings, name='client_bookings'),
     path('assignedbookings/', views.interpreter_assigned_bookings, name='interpreter_assigned_bookings'),
 
     # Admin urls
@@ -31,4 +31,11 @@ urlpatterns = [
     path('interpreter/<int:interpreter_id>/', views.admin_manage_interpreter_detail, name='admin_manage_interpreter_detail'),
     path('admin/contact-messages/<int:message_id>/', views.admin_contact_message_detail, name='admin_contact_message_detail'),
     path('interpreters/<int:interpreter_id>/toggle-status/', views.toggle_interpreter_status, name='toggle_interpreter_status'),
+
+    # Notes urls
+    path('notes/add/', views.add_note, name='add_note'),
+    path('notes/', views.all_notes, name='all_notes'),
+    path('notes/<int:note_id>/', views.note_detail, name='note_detail'),
+    path('notes/<int:note_id>/edit/', views.edit_note, name='edit_note'),
+    path('notes/<int:note_id>/delete/', views.delete_note, name='delete_note'),
 ]

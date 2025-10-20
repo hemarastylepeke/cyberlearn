@@ -1,5 +1,9 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth import get_user_model
+
+# Get the user model
+User = get_user_model()
 
 # Contact Us model.
 class ContactUs(models.Model):
@@ -15,6 +19,21 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return f"Contact from {self.first_name} at {self.email}"
+
+# Notes model  
+class Note(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notes')
+    title = models.CharField(max_length=200)
+    content = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_pinned = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-updated_at']
+
+    def __str__(self):
+        return self.title
 
 # Book Demo Model.
 class BookDemo(models.Model):

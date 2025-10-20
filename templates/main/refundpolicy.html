@@ -1,0 +1,331 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Refund Policy Section -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mx-auto flex justify-center items-center mb-8">
+            <div class="w-[250px] items-center justify-center bg-blue-100/50 border-blue-400 border flex flex-row rounded-full px-4 py-2">
+                <svg class="w-6 h-6 mr-3 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                </svg>
+                <span class="text-blue-600">Refund Policy</span>
+            </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+            <h1 class="text-4xl font-bold text-center text-slate-900 mb-4">Refund Policy</h1>
+            <p class="text-center text-slate-600 mb-12">Last Updated: October 20, 2025</p>
+            
+            <!-- Trust Badge -->
+            <div class="bg-blue-50/50 border border-blue-200 rounded-xl p-6 mb-8">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Our Commitment to You</h3>
+                        <p class="text-slate-700 mb-0">
+                            At NoteMaster, we want you to be completely satisfied with your subscription. If you're not happy with our service, we offer a fair and transparent refund policy. Your satisfaction is our priority.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free Plan -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-slate-900 mb-0">Free Plan</h2>
+                </div>
+                <p class="text-slate-600 mb-4">
+                    Our Free plan is completely free—no credit card required, no hidden charges. You can use it indefinitely with up to 50 notes and basic features.
+                </p>
+                <div class="bg-slate-50 rounded-lg p-4">
+                    <p class="text-sm text-slate-700 mb-0">
+                        <strong>Cost:</strong> $0 forever • <strong>Refunds:</strong> Not applicable (no charges)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Premium Monthly -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-slate-900 mb-0">Premium Monthly Plan ($7/month)</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">7-Day Money-Back Guarantee</h3>
+                        <p class="text-slate-600 mb-3">
+                            If you're not satisfied with NoteMaster Premium, you can request a full refund within <strong>7 days</strong> of your initial subscription purchase. No questions asked.
+                        </p>
+                        <ul class="list-disc pl-6 text-slate-600 space-y-1">
+                            <li>Applies to first-time Premium subscribers only</li>
+                            <li>Full refund of the subscription fee</li>
+                            <li>Must be requested within 7 days of purchase</li>
+                            <li>Refund processed to original payment method</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                        <h4 class="text-sm font-semibold text-amber-900 mb-2">After 7 Days</h4>
+                        <p class="text-sm text-amber-800 mb-0">
+                            Monthly subscriptions are non-refundable after the 7-day window. However, you can cancel anytime, and you'll retain access until the end of your current billing period.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Annual -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-slate-900 mb-0">Premium Annual Plan (If Applicable)</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">14-Day Money-Back Guarantee</h3>
+                        <p class="text-slate-600 mb-3">
+                            Annual subscriptions come with an extended <strong>14-day</strong> money-back guarantee. If you're not satisfied, request a full refund within 14 days of purchase.
+                        </p>
+                        <ul class="list-disc pl-6 text-slate-600 space-y-1">
+                            <li>Full refund within 14 days of purchase</li>
+                            <li>Applies to first-time annual subscribers</li>
+                            <li>Processed to original payment method</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">Prorated Refunds (After 14 Days)</h3>
+                        <p class="text-slate-600 mb-3">
+                            If you cancel your annual subscription after the 14-day window but before your renewal date, you're eligible for a <strong>prorated refund</strong> for the unused portion of your subscription.
+                        </p>
+                        <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                            <p class="text-sm text-purple-900 mb-2"><strong>Example:</strong></p>
+                            <p class="text-sm text-purple-800 mb-0">
+                                If you paid $70 for an annual plan and cancel after 6 months, you'll receive a refund for the remaining 6 months (approximately $35, minus any applicable processing fees).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Request -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-slate-900 mb-0">How to Request a Refund</h2>
+                </div>
+                
+                <p class="text-slate-600 mb-4">
+                    Requesting a refund is simple and straightforward. Follow these steps:
+                </p>
+
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                            1
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Contact Our Support Team</h4>
+                            <p class="text-slate-600 text-sm mb-0">
+                                Email us at <a href="mailto:support@notemaster.com" class="text-indigo-600 hover:text-indigo-700 underline">support@notemaster.com</a> with the subject line "Refund Request"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                            2
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Provide Required Information</h4>
+                            <p class="text-slate-600 text-sm mb-0">
+                                Include your account email address and the reason for your refund request (optional but helpful)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                            3
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Receive Confirmation</h4>
+                            <p class="text-slate-600 text-sm mb-0">
+                                We'll respond within 24-48 hours to confirm your refund request
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                            4
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-1">Refund Processed</h4>
+                            <p class="text-slate-600 text-sm mb-0">
+                                Refunds are processed within 5-7 business days to your original payment method
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <p class="text-sm text-blue-900 mb-0">
+                        <strong>Note:</strong> Depending on your bank or payment provider, it may take an additional 3-10 business days for the refund to appear in your account.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Non-Refundable Items -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-slate-900 mb-0">Non-Refundable Items</h2>
+                </div>
+                
+                <p class="text-slate-600 mb-4">
+                    The following are not eligible for refunds:
+                </p>
+
+                <ul class="list-disc pl-6 text-slate-600 space-y-2">
+                    <li><strong>Subscription renewals</strong> - Refunds are not provided for automatic renewals. Cancel before your renewal date to avoid charges.</li>
+                    <li><strong>Partial months</strong> - Monthly subscriptions are billed monthly and cannot be refunded for partial periods (except within the 7-day guarantee).</li>
+                    <li><strong>Add-on purchases</strong> - Any additional features or add-ons purchased separately (if applicable in the future).</li>
+                    <li><strong>Accounts suspended for violations</strong> - No refunds are provided if your account is terminated due to Terms of Service violations.</li>
+                </ul>
+            </div>
+
+            <!-- Cancellation Policy -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-slate-900 mb-0">Cancellation Policy</h2>
+                </div>
+                
+                <p class="text-slate-600 mb-4">
+                    You can cancel your NoteMaster Premium subscription at any time through your account settings or by contacting support.
+                </p>
+
+                <div class="space-y-3">
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">What Happens When You Cancel?</h4>
+                        <ul class="list-disc pl-6 text-slate-600 space-y-1 text-sm">
+                            <li>You'll retain Premium access until the end of your current billing period</li>
+                            <li>No further charges will be made</li>
+                            <li>After the period ends, your account will revert to the Free plan</li>
+                            <li>Your notes and data remain safe—you'll keep up to 50 notes on the Free plan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-orange-50 border border-orange-200 rounded-lg p-4">
+                    <p class="text-sm text-orange-900 mb-0">
+                        <strong>Important:</strong> To avoid being charged for the next billing cycle, cancel at least 24 hours before your renewal date.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-900 mb-6">Frequently Asked Questions</h2>
+                
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-2">Can I get a refund if I forgot to cancel before renewal?</h4>
+                        <p class="text-slate-600 text-sm mb-0">
+                            Renewal charges are generally non-refundable. However, if you contact us within 48 hours of an accidental renewal, we may be able to process a refund on a case-by-case basis.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-2">How long does it take to receive my refund?</h4>
+                        <p class="text-slate-600 text-sm mb-0">
+                            We process refunds within 5-7 business days. Depending on your bank, it may take an additional 3-10 days for the funds to appear in your account.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-2">What happens to my notes if I get a refund?</h4>
+                        <p class="text-slate-600 text-sm mb-0">
+                            Your notes are safe! After a refund, your account will revert to the Free plan. You can keep up to 50 notes. If you have more, you'll need to delete or export the excess before the downgrade takes effect.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-2">Can I get a refund if I'm not satisfied with a feature?</h4>
+                        <p class="text-slate-600 text-sm mb-0">
+                            Yes! If you're within the money-back guarantee period (7 days for monthly, 14 days for annual), you can request a full refund for any reason.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-2">Do you offer refunds for technical issues?</h4>
+                        <p class="text-slate-600 text-sm mb-0">
+                            If you experience significant technical issues that prevent you from using the service, please contact our support team immediately. We'll work to resolve the issue or discuss refund options if necessary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Support -->
+            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6 mb-8">
+                <div class="text-center">
+                    <svg class="w-12 h-12 text-indigo-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Still Have Questions?</h3>
+                    <p class="text-slate-700 mb-4">
+                        Our support team is here to help! We typically respond within 24 hours.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a href="mailto:support@notemaster.com" class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Email Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6">
+                <p class="text-sm text-slate-600 text-center mb-0">
+                    <strong>Last Updated: October 20, 2025</strong><br>
+                    This Refund Policy is part of our Terms of Service and is subject to change. We'll notify you of any material changes via email.<br>
+                    By using NoteMaster, you agree to this Refund Policy.
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

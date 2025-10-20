@@ -1,0 +1,144 @@
+{% extends "main/loginbase.html" %}
+{% load static %}
+{% block content %}
+    <section class="bg-white">
+    <div class="w-full xl:max-w-7xl flex flex-col justify-center relative py-8">
+        <div class="text-base text-gray-500">
+            <div class="flex flex-col gap-4 mb-6">
+                <div class="flex flex-row gap-4 items-center">
+                    <div class="bg-gradient-to-r from-indigo-600 to-indigo-950 w-[10px] h-[25px] rounded-lg"></div>
+                    <h1 class="font-bold text-lg">My Notes <span class="text-green-600">({{ notes.count }})</span></h1>
+                </div>
+                <p class="text-sm leading-6">
+                    Create, edit, and manage all your notes from this section.
+                </p>
+            </div>
+        </div>
+
+        <div x-data="{ activeTab: 0, editingId: null, showForm: false }" class="w-full border-t border-slate-200 py-12">
+            <!-- Tab Navigation -->
+            <ul role="tablist" class="-mb-px flex flex-col sm:flex-row items-stretch gap-2 text-slate-500">
+                <li class="w-full sm:w-auto">
+                    <button @click="activeTab = 0; showForm = false" :aria-selected="activeTab === 0" :class="{ 'bg-indigo-50 text-indigo-600': activeTab === 0 }" class="w-full flex gap-2 items-center justify-center sm:justify-start rounded-full px-6 h-10 py-2 text-sm font-medium hover:cursor-pointer" role="tab">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                            <path d="M3 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3Zm6.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm9-1.5a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6Z"/>
+                        </svg>
+                        <span>All Notes ({{ notes.count }})</span>
+                    </button>
+                </li>
+                <li class="w-full sm:w-auto">
+                    <button @click="activeTab = 1; showForm = true; editingId = null" :aria-selected="activeTab === 1" :class="{ 'bg-indigo-50 text-indigo-600': activeTab === 1 }" class="w-full flex gap-2 items-center justify-center sm:justify-start rounded-full px-6 h-10 py-2 text-sm font-medium hover:cursor-pointer" role="tab">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                            <path d="M12 1.5a.75.75 0 0 1 .75.75V11.25h9v-9a.75.75 0 0 0-.75-.75h-18a.75.75 0 0 0-.75.75v18a.75.75 0 0 0 .75.75H11.25v-9h-9v9a.75.75 0 0 0 .75.75h18a.75.75 0 0 0 .75-.75v-9h-9V2.25a.75.75 0 0 1 .75-.75Z"/>
+                        </svg>
+                        <span>Create Note</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Panels -->
+            <div role="tabpanels" class="rounded-b-md border rounded-xl overflow-hidden border-gray-200 mt-4 bg-white">
+                <!-- All Notes Panel -->
+                <section x-show="activeTab === 0" role="tabpanel" class="p-8">
+                    {% if notes %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {% for note in notes %}
+                                <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-all hover:border-indigo-300">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <h3 class="text-lg font-semibold text-slate-900 flex-1 line-clamp-2">{{ note.title }}</h3>
+                                        {% if note.is_pinned %}
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 ml-2">
+                                                Pinned
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    {% if note.content %}
+                                        <p class="text-sm text-slate-600 line-clamp-3 mb-4">{{ note.content }}</p>
+                                    {% endif %}
+                                    
+                                    <div class="flex flex-col gap-2 text-xs text-slate-500 mb-4 pb-4 border-b border-slate-200">
+                                        <p>Created: {{ note.created_at|date:"M d, Y" }}</p>
+                                        <p>Updated: {{ note.updated_at|date:"M d, Y g:i A" }}</p>
+                                    </div>
+
+                                    <div class="flex gap-2">
+                                        <button @click="activeTab = 1; editingId = {{ note.id }}; showForm = true" class="flex-1 px-3 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94m-6.75-6.75L12.91 3.9m0 0L21.24 12.23m-9.33-9.33L2.82 13.42m0 0a1.5 1.5 0 1 1 2.12 2.12l-6.75 6.75m0 0L21 21"/>
+                                            </svg>
+                                            Edit
+                                        </button>
+                                        <form method="post" action="{% url 'delete_note' note.id %}" class="flex-1" onsubmit="return confirm('Are you sure you want to delete this note?');">
+                                            {% csrf_token %}
+                                            <button type="submit" class="w-full px-3 py-2 bg-red-100 hover:bg-red-200 text-red-700 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                                                    <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478m-3.622.986a48.884 48.884 0 0 1-1.122-2.356m0 0c-.503-.924-1.102-2.096-1.694-3.05A6.75 6.75 0 0 0 12 1.5H4.5a2.25 2.25 0 0 0-2.25 2.25v1.033A48.905 48.905 0 0 1 5.75 4.5m3.78 0 .5-1m5.472 0 .5 1m-9.97 3.5c.937.324 1.846.933 2.5 1.946m7.47-1.946c.652-1.013 1.562-1.622 2.5-1.946m0 0A48.74 48.74 0 0 0 12 3.75c-2.718 0-5.358.577-7.89 1.46"/>
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="bg-indigo-600/5 rounded-2xl border border-indigo-200/40 text-indigo-800 p-8 text-center gap-3 items-center flex flex-col">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            <span>You haven't created any notes yet. Start by creating your first note!</span>
+                        </div>
+                    {% endif %}
+                </section>
+
+                <!-- Create/Edit Note Panel -->
+                <section x-show="activeTab === 1" role="tabpanel" class="p-8">
+                    <div class="max-w-2xl">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-6" x-text="editingId ? 'Edit Note' : 'Create New Note'"></h2>
+                        
+                        <form method="post" :action="editingId ? `/notes/${editingId}/edit/` : '{% url 'add_note' %}'">
+                            {% csrf_token %}
+                            
+                            {{ form.as_p }}
+
+                            {% if form.non_field_errors %}
+                                <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                                    {% for error in form.non_field_errors %}
+                                        <p class="text-sm text-red-700">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            <div class="flex gap-3 mt-6">
+                                <button type="submit" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors">
+                                    <span x-text="editingId ? 'Update Note' : 'Create Note'"></span>
+                                </button>
+                                <button type="button" @click="activeTab = 0; editingId = null; showForm = false" class="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-900 font-medium rounded-lg transition-colors">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <style>
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+{% endblock content %}
